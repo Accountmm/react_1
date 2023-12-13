@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Raleway:wght@300&family=Whisper&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@1,200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="icon" href="./imgs/icon.svg" type="image/icon">
+    <title>React</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="root"></div>
+    </div>
+    <script type="text/babel">
+
+        function App() {
+            // const [count, setCount] = React.useState(0);
+            const [text, setText] = React.useState(``);
+            const [text2, setText2] = React.useState(``);
+             function login(e) {
+                setText(e)
+             }
+             function login2(e) {
+                setText2(e)
+             }
+             function countLength(t) {
+                if (t.length < 5) {
+                    return `Brat 5 tadan kamku! : ${t.length}`
+                }else if (t.length === 5) {
+                    return `Brat 5 ga teng! : ${t.length}`
+                }else {
+                    return `Brat 5 tadan kotta! :${t.length}`
+                }                
+             }
+            return (
+                <div className="box">
+                <div className="card">
+                      <h2 className="title">Hello teacher</h2> 
+                      <h4 className="text__title">Text</h4>
+                      <input type="text" className="card__input__text" placeholder ='Enter your login' value = {text} onChange={(e) => login(e.target.value)} />
+                      <p className="text__info">{countLength(text)}</p>
+                      <h4 className="password__title">Password</h4>
+                      <input type="text" className="card__input__pasword" placeholder ='Enter your password' value = {text2} onChange={(e) => login2(e.target.value)}/>
+                      <p className="password__info">{countLength(text2)}</p>
+                </div>
+              </div>
+            )  
+        }
+        const  app = document.getElementById('root')
+        const  root = ReactDOM.createRoot(app)
+        root.render(<App/>)
+    </script>
+</body>
+
+</html>
